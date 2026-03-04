@@ -5,9 +5,8 @@ const override = {
     margin : '100px auto'
 }
 type spinnerType = {
- loading : boolean
+ loading ?: boolean
 }
-
 
 const Spinner = ({loading}: spinnerType) => {
   return (

@@ -1,10 +1,8 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { login } from "../feautures/auth/auth.api";
-import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
-  const navigate = useNavigate();
+const LoginPage = () => {;
 
   const formik = useFormik({
     initialValues: {
@@ -16,13 +14,8 @@ const LoginPage = () => {
       password: Yup.string().min(6, "Too short").required("Required"),
     }),
    onSubmit: async (values, { setSubmitting }) => {
-      try {
         await login(values.userName, values.password);
-        navigate("/");
-      }
-      finally {
-        setSubmitting(false);
-      }
+        setSubmitting(false);   
     },
   });
 
