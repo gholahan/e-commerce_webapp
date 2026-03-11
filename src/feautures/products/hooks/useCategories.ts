@@ -5,6 +5,7 @@ export const useCategories = () => {
      const { data: categories = [] } = useQuery({
     queryKey: ['categories'],
     queryFn: getCategories,
+    gcTime: 1000 * 60 * 30 ,
   });
   return {
     categories

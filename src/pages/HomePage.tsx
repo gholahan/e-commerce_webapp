@@ -3,11 +3,14 @@ import SideBar from "../feautures/products/components/SideBar";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[2vw]">
-     <SideBar/>
-     <HomePageGrd/>
-    </div>
-  )
-}
+    <div className="flex">
+      <SideBar />
 
-export default HomePage
+      <main className="flex-1 px-4 md:px-[5vw] lg:px-[7vw] xl:px-[2vw]">
+        <HomePageGrd />
+      </main>
+    </div>
+  );
+};
+
+export default HomePage;
