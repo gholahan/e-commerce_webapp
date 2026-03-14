@@ -8,6 +8,7 @@ const RootLayout = () => {
    const { pathname } = useLocation();
 
   const isHomePage = pathname === "/";
+  const profilePage = pathname === '/profile'
   return (
     <>
      <AnnouncementBar/>
@@ -15,7 +16,7 @@ const RootLayout = () => {
      <ScrollToTop />
     <div className="flex flex-col">
      <main className='min-h-screen px-4 sm:px-[3vw] md:px-[5vw] lg:px-[7vw]'>
-      {!isHomePage && <Breadcrumbs />}
+      {!isHomePage && !profilePage && <Breadcrumbs />}
       <Outlet/>
      </main>
      <Footer/>
