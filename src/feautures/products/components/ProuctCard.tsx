@@ -109,9 +109,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         {/* Rating */}
-        <div className="flex items-center gap-0.5 mb-1">
+        <div className="flex items-center gap-0.5 mb-1 text-sm font-medium">
           {renderStars(product.rating)}
-          {product.rating}
+          ({(product.rating * 10).toFixed(1)})
         </div>
 
         {/* Cart Section */}
