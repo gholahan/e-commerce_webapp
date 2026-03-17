@@ -9,16 +9,16 @@ const RootLayout = () => {
 
   const isHomePage = pathname === "/";
   const profilePage = pathname === '/profile'
-  const paymenyPage = pathname === '/payment'
-  const addressPage  = pathname === '/address'
+  const paymentPage = pathname === '/profile/payment'
+  const addressPage  = pathname === '/profile/address'
   return (
     <>
      <AnnouncementBar/>
      <Navbar/>
      <ScrollToTop />
     <div className="flex flex-col">
-     <main className='min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-      {!isHomePage && !profilePage && !paymenyPage && addressPage && <Breadcrumbs />}
+     <main className='min-h-screen px-4 sm:px-[0.5vw] md:px-[7vw] lg:px-[9vw]'>
+      {!isHomePage && !profilePage && !paymentPage && !addressPage && <Breadcrumbs />}
       <Outlet/>
      </main>
      <Footer/>

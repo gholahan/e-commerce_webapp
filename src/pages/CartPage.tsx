@@ -64,17 +64,16 @@ const CartPage = () => {
 
       {/* Totals */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mt-9">
-        <div className="flex gap-3 w-full lg:w-auto">
-          <input
-            type="text"
-            placeholder="coupon code"
-            className="flex-1 lg:flex-none text-gray-600 py-2 px-4 border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-gray-800"
-          />
-          <button className="text-white bg-[#DB4444] hover:bg-[#E07575] text-sm py-2 px-5 rounded whitespace-nowrap">
-            Apply coupon
-          </button>
-        </div>
-
+       <div className="flex gap-3 w-full lg:w-auto">
+        <input
+          type="text"
+          placeholder="Coupon code"
+          className="min-w-0 flex-1 text-gray-600 py-2 px-4 border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-gray-800"
+        />
+        <button className="shrink-0 text-white bg-[#DB4444] hover:bg-[#E07575] text-sm py-2 px-5 rounded">
+          Apply
+        </button>
+      </div>
         <div className="w-full lg:w-100 rounded-lg border border-gray-600 p-4">
           <h2 className="text-lg font-semibold text-black mb-2">
             Cart Total

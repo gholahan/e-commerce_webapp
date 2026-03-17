@@ -25,7 +25,7 @@ const CategoryPage = () => {
         <p className="text-gray-600 mt-2">Explore products in this category</p>
       </div>
 
-      <ProductGrid product={data?.products ?? []} explore={true}  loading={isLoading}/>
+      <ProductGrid product={data?.products ?? []}  loading={isLoading}/>
 
       {data?.products && data.products.length > 0 && totalPages > 1 && (
         <Pagination

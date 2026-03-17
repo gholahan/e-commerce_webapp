@@ -15,7 +15,7 @@ const ProfilePage = () => {
         </p>
       </div>
 
-      <div className="flex max-w-7xl mx-auto gap-7 px-4 sm:px-0 md:px-6">
+      <div className="flex max-w-7xl mx-auto gap-7 px-4 sm:p-0 md:px-6">
         {/* Sidebar */}
         <aside className="hidden md:flex w-64 shrink-0 flex-col gap-6 sticky top-6">
           <div>
@@ -56,7 +56,7 @@ const ProfilePage = () => {
 
         {/* Main Content */}
         <main className="flex-1">
-          <div className="w-full max-w-6xl mx-auto bg-white rounded-lg shadow-md p-14">
+          <div className="w-full max-w-7xl mx-auto bg-white rounded-lg sm:shadow-md shadow-none p-2 sm:p-10">
             <Outlet />
           </div>
         </main>

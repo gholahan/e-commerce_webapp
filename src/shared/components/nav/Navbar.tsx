@@ -28,7 +28,7 @@ const Navbar = () => {
     <header className="bg-white text-black border-b border-gray-200 relative w-auto">
       <div className="mx-auto h-14 md:h-16 flex items-center justify-between px-4 sm:px-[5vw] md:px-[8vw] lg:px-[10vw]">
         {/* Logo */}
-        <Link to="/" className="text-xl font-bold shrink-0">
+        <Link to="/" className="text-xl font-bold shrink-0 pr-2">
           Exclusive
         </Link>
 

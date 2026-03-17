@@ -11,12 +11,12 @@ const CartSummary = ({
   isProcessing = false,
   loading
 }: CartSummaryProps) => {
-   if (loading) {
+  if (loading) {
     return <CartSummarySkeleton />;
   }
 
   return (
-    <div className="w-120 text-sm font-medium">
+    <div className="w-full lg:w-110 text-sm font-medium lg:sticky lg:top-6 self-start">
       {cartProducts?.map((prod) => {
         const cartItem = cart.find((item) => item.id === prod.id);
         const quantity = cartItem?.quantity ?? 1;
@@ -32,14 +32,14 @@ const CartSummary = ({
             className="flex justify-between items-start mb-5 pb-4 border-b border-gray-300"
             key={prod.id}
           >
-            <div className="flex gap-3 flex-1">
+            <div className="flex gap-3 flex-1 min-w-0">
               <img
                 src={prod.thumbnail}
                 alt={prod.title}
                 className="h-16 w-16 rounded object-cover"
               />
-              <div>
-                <p className="font-medium text-gray-800 line-clamp-2">
+              <div className="min-w-0">
+                <p className="font-medium text-sm text-gray-800 line-clamp-2">
                   {prod.title}
                 </p>
                 <p className="text-gray-600 text-xs">
@@ -48,8 +48,8 @@ const CartSummary = ({
               </div>
             </div>
 
-            <div className="text-right">
-              <p className="font-bold">${itemTotal}</p>
+            <div className="text-right shrink-0">
+              <p className="font-semibold">${itemTotal}</p>
             </div>
           </div>
         );

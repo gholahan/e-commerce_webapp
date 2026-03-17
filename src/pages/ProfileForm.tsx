@@ -35,13 +35,13 @@ const ProfileForm = () => {
       {(formik) => (
         <form onSubmit={formik.handleSubmit} className="flex flex-col gap-6 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <FormInput label="First Name" name="firstname" formik={formik} />
-            <FormInput label="Last Name" name="lastname" formik={formik} />
+            <FormInput label="First Name" name="firstname" formik={formik} placeholder={user?.firstName} />
+            <FormInput label="Last Name" name="lastname" formik={formik} placeholder={user?.lastName}/>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <FormInput label="Email" name="email" type="email" formik={formik} />
-            <FormInput label="Address" name="address" formik={formik} />
+            <FormInput label="Email" name="email" type="email" formik={formik} placeholder={user?.email}/>
+            <FormInput label="Address" name="address" formik={formik} placeholder={user?.address.address}/>
           </div>
 
           <div className="flex flex-col gap-5 mt-4">

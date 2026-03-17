@@ -44,15 +44,15 @@ const Checkout = () => {
           );
 
           await handlePayment(values.paymentMethod, payload);
-
         } finally {
           setIsProcessing(false);
         }
       }}
     >
       {(formik) => (
-        <Form className="flex gap-8">
+        <Form className="flex flex-col lg:flex-row gap-8">
           <CheckoutFormFields formik={formik} />
+
           <CartSummary
             loading={isLoading}
             cartProducts={cartProducts}

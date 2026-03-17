@@ -33,7 +33,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
         <Route path='/login' element={<Suspense fallback={<Spinner/>}><LoginPage/></Suspense>}/>
       </Route>
     </Route>
-    <Route element={<ProtectedRoute/>}>
+    {/* <Route element={<ProtectedRoute/>}> */}
       <Route element={<RootLayout/>}>
         <Route path='/' element={<HomePage/>}/>
         <Route path='wishlist' element={<Wishlist/>}/>
@@ -49,7 +49,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
         <Route path='*' element={<NotFound/>}/>
         </Route>
       </Route>
-    </Route>
+    // </Route>
   ))
 
 const App = () => {

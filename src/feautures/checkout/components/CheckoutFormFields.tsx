@@ -7,16 +7,15 @@ interface CheckoutFormFieldsProps {
   formik: FormikProps<CheckoutFormValues>;
 }
 
-const CheckoutFormFields = ({
-  formik,
-}: CheckoutFormFieldsProps) => {
+const CheckoutFormFields = ({ formik }: CheckoutFormFieldsProps) => {
   const firstInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     firstInputRef.current?.focus();
   }, []);
+
   return (
-    <div className="flex-1 flex flex-col gap-3 mr-22">
+    <div className="flex-1 flex flex-col gap-3 lg:mr-22">
       <FormInput
         ref={firstInputRef}
         name="fullName"

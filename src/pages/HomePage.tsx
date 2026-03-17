@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className="flex">
       <SideBar />
 
-      <main className="flex-1 px-4 md:px-[3vw] lg:px-[2vw] xl:px-[2vw]">
+      <main className="flex-1 md:px-[3vw] lg:px-[2vw] xl:px-[2vw]">
         <HomePageGrd />
       </main>
     </div>
