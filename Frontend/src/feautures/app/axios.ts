@@ -5,7 +5,7 @@ import { refresh } from "../auth/auth.api";
 const api = axios.create({
     baseURL:"https://dummyjson.com",
     headers:{
-        'content-Type':"application/json"
+        'Content-Type':"application/json"
     },
     // withCredentials: true
 });
@@ -15,6 +15,7 @@ api.interceptors.request.use((config)=>{
   const token = useAuthStore.getState().accessToken;
 
   if(token){
+   config.headers = config.headers || {};
    config.headers.Authorization = `Bearer ${token}`
   }
   return config

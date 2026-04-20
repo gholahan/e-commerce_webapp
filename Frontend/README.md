@@ -3,7 +3,7 @@ A modern, responsive e-commerce web application built with React, Vite, and Type
 Users can browse products, manage a cart and wishlist, and authenticate using demo accounts.
 
 ## Live Preview Link
-https://e-commerce-webapp-riz3.vercel.app/
+[View the App](https://e-commerce-webapp-riz3.vercel.app/)
 
 ## Demo Accounts
 Login using any DummyJSON user(https://dummyjson.com/users)
@@ -16,17 +16,14 @@ Example credentials:
 | michaelw | michaelwpass |
 
 ## Features
-- Browse the full product catalog  
-- Search products using the search bar, with modal preview results and a “See all” button to navigate to the full search page  
-- Sharable search URLs for easy linking and bookmarking  
-- Add products to the shopping cart and adjust quantities on any page  
-- Save products to a wishlist and browse wishlist page  
-- Automatically calculated total and subtotal for checkout  
-- JWT-based authentication with protected and public routes  
-- Responsive design for both mobile and desktop  
-- Skeleton loaders for a smooth loading experience  
-- Toast notifications for user feedback  
-- Pagination on all pages with ProductCard components (24 products per page)
+- **Product Browsing:** Full catalog with pagination (24 per page)
+- **Search:** Modal preview with “See all” to move to page, sharable URLs for each search
+- **Cart:** Add/remove items, adjust quantities
+- **Wishlist:** Save and manage favorites
+- **Checkout:** Auto subtotal & total calculation
+- **Auth:** JWT-protected routes
+- **UI:** Responsive design, skeleton loaders, toast notifications
+
 
 ## Tech Stack
 - **Frontend:** React, TypeScript, Vite  
@@ -39,10 +36,12 @@ Example credentials:
 - **Deployment:** Vercel
 
 ## Getting Started
+```bash
 git clone https://github.com/gholahan/e-commerce_webapp.git
-- cd e-commerce_webapp
-- npm install
-- npm run dev
+cd e-commerce_webapp
+npm install
+npm run dev
+```
 
 ## Architecture
 The project uses a feature-based folder structure — each feature contains its own components, skeletons, hooks, services, types, and store, keeping related code grouped together for scalability and maintainability.
