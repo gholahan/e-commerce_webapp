@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from checkout.routes.billing import router as billing_router
 from checkout.routes.webhook import router as webhook_router
+from checkout.routes.verifyPayment import router as verify_payment_router
 from fastapi.middleware.cors import CORSMiddleware
 from core.config import ORIGINS
 
@@ -8,6 +9,7 @@ from core.config import ORIGINS
 app = FastAPI()
 app.include_router(billing_router)
 app.include_router(webhook_router)
+app.include_router(verify_payment_router)
 
 app.add_middleware(
     CORSMiddleware,
