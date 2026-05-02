@@ -33,7 +33,7 @@ function CartProductRowItem({ item }: { item: Product }) {
   const { increaseCount, decreaseCount, removeFromCart, cart, setQuantity } =
     useCartStore()
 
-  const cartItem = cart.find((c) => c.id === item.id)
+  const cartItem = cart.find((c) => c.product_id === item.id)
   if (!cartItem) return null
 
   const quantity = cartItem.quantity

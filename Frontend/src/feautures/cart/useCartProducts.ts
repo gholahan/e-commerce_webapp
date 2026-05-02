@@ -6,7 +6,7 @@ import { useCartStore } from "./cart.store";
 
 export const useCartProducts = () => {
   const cart = useCartStore(s=>s.cart);
-  const cartIds = cart.map((item) => item.id);
+  const cartIds = cart.map((item) => item.product_id);
 
   // Fetch products
   const cartProductQueries = useQueries({
@@ -22,7 +22,7 @@ export const useCartProducts = () => {
     .filter(Boolean) as Product[];
 
   const isLoading = cartProductQueries.some((q) => q.isLoading || q.isFetching);
-  const isError = cartProductQueries.some((q) => q.isError);
+  const apiError = cartProductQueries.some((q) => q.isError);
 
   // Business logic: subtotal, total, shipping
   const subtotal = calculateSubtotal(cart, cartProducts);
@@ -33,7 +33,7 @@ export const useCartProducts = () => {
     cart,
     cartProducts,
     isLoading,
-    isError,
+    apiError,
     subtotal,
     shipping,
     total,

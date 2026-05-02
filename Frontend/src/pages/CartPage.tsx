@@ -6,14 +6,14 @@ const CartPage = () => {
   const {
     cartProducts,
     isLoading,
-    isError,
+    apiError,
     subtotal,
     shipping,
     total,
     cart,
   } = useCartProducts()
 
-  if (isError) {
+  if (apiError) {
     return (
       <div className="flex justify-center items-center h-screen text-xs">
         Error Loading your cart items

@@ -1,7 +1,8 @@
 import type { FormikProps } from "formik";
 import type { Product } from "../products/types/product";
+import type {CartItem} from "../cart/cart.store"
 
-export type PaymentMethod = "bank" | "cash";
+export type PaymentMethod = "bank" | "cash"
 
 export interface CheckoutFormValues {
   fullName: string;
@@ -24,17 +25,8 @@ export interface OrderPayload {
     street: string;
     town: string;
   };
-  items: CartItem[]; 
-  subtotal: number;
-  shipping: number;
-  total: number;
+  items: CartItem[];
   paymentMethod: PaymentMethod;
-  status: "pending";
-}
-
-export interface CartItem {
-  id: number;
-  quantity: number;
 }
 
 export interface CartSummaryProps {
@@ -44,7 +36,20 @@ export interface CartSummaryProps {
   subtotal: number;
   shipping: number;
   total: number;
-  formik: FormikProps<any>;
+  formik: FormikProps<CheckoutFormValues>;
   isProcessing?: boolean;
+  error: boolean
+  payError: boolean
 }
+
+export interface checkoutRes {
+  "checkout_url": string,
+  "reference": string,
+  "order_id": string,
+  "subtotal": number,
+  "total": number,
+  "payment_status": string,
+  "amount_paid_ngn": number
+}
+
 

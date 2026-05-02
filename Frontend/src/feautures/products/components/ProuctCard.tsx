@@ -25,7 +25,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   // quantity of this product in cart (0 when not added)
   const quantity = useCartStore((state) =>
-    state.cart.find((item) => item.id === product.id)?.quantity ?? 0
+    state.cart.find((item) => item.product_id === product.id)?.quantity ?? 0
   );
 
   const addedToCart = added(product.id);

@@ -1,11 +1,9 @@
+import type { CartItem } from "../cart/cart.store";
 import type { CheckoutFormValues, OrderPayload } from "./types";
 
 export function buildOrderPayload(
   values: CheckoutFormValues,
-  cartProducts: any[],
-  subtotal: number,
-  shipping: number,
-  total: number
+  cartProducts: CartItem[],
 ): OrderPayload {
   return {
     customer: {
@@ -18,10 +16,6 @@ export function buildOrderPayload(
       town: values.town,
     },
     items: cartProducts,
-    subtotal,
-    shipping,
-    total,
-    paymentMethod: values.paymentMethod,
-    status: "pending",
+    paymentMethod: values.paymentMethod
   };
 }

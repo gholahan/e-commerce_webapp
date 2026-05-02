@@ -1,17 +1,21 @@
 import { Formik, Form } from "formik";
-import { useState } from "react";
+
 import { useCartProducts } from "../feautures/cart/useCartProducts";
 import { useCartStore } from "../feautures/cart/cart.store";
 import CheckoutFormFields from "../feautures/checkout/components/CheckoutFormFields";
 import CartSummary from "../feautures/checkout/components/CartSummary";
 import { checkoutValidationSchema } from "../feautures/checkout/validation";
 import { buildOrderPayload } from "../feautures/checkout/buildOrderPayload";
-import { handlePayment } from "../feautures/checkout/payment.service";
-import type { CheckoutFormValues } from "../feautures/checkout/types";
+import type { CheckoutFormValues} from "../feautures/checkout/types";
+import { useCheckout } from "../feautures/checkout/useCheckout";
+import { toast } from "react-toastify";
+
+
 
 const Checkout = () => {
-  const [isProcessing, setIsProcessing] = useState(false);
-  const { cartProducts, subtotal, shipping, total, isLoading } = useCartProducts();
+  const { CheckoutAsync, isPending, isError} = useCheckout();
+
+  const { cartProducts, subtotal, shipping, total, isLoading, apiError } = useCartProducts();
   const cart = useCartStore((s) => s.cart);
 
   const initialValues: CheckoutFormValues = {
@@ -30,22 +34,19 @@ const Checkout = () => {
       initialValues={initialValues}
       validationSchema={checkoutValidationSchema}
       onSubmit={async (values) => {
-        if (!cartProducts?.length) return;
-
         try {
-          setIsProcessing(true);
-
-          const payload = buildOrderPayload(
-            values,
-            cartProducts,
-            subtotal,
-            shipping,
-            total
+          
+          const response = await CheckoutAsync(
+            buildOrderPayload(values, cart)
           );
 
-          await handlePayment(values.paymentMethod, payload);
-        } finally {
-          setIsProcessing(false);
+          window.location.href = response.checkout_url;
+        if(isError){
+          console.error("Checkout failed:", isError);
+          toast("Checkout failed. Please try again.");
+        }
+        } catch (err) {
+          console.error("Checkout failed:", err);
         }
       }}
     >
@@ -55,13 +56,15 @@ const Checkout = () => {
 
           <CartSummary
             loading={isLoading}
+            error={apiError}
             cartProducts={cartProducts}
             cart={cart}
             subtotal={subtotal}
             shipping={shipping}
             total={total}
             formik={formik}
-            isProcessing={isProcessing}
+            isProcessing={isPending}
+            payError={isError}
           />
         </Form>
       )}

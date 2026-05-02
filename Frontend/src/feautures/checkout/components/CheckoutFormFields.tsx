@@ -54,40 +54,6 @@ const CheckoutFormFields = ({ formik }: CheckoutFormFieldsProps) => {
         required
         formik={formik}
       />
-
-      <div>
-        <div className="flex items-center gap-2">
-          <input
-            name="save"
-            type="checkbox"
-            checked={formik.values.save}
-            onChange={formik.handleChange}
-            className="w-4 h-4"
-          />
-          <label className="text-gray-600 text-sm">
-            Save this information for faster check-out next time
-          </label>
-        </div>
-
-        <div className="flex items-center gap-2 mt-2.5">
-          <input
-            name="agree"
-            type="checkbox"
-            checked={formik.values.agree}
-            onChange={formik.handleChange}
-            className="w-4 h-4"
-          />
-          <label className="text-gray-600 text-sm">
-            Agree to terms and condition
-          </label>
-        </div>
-
-        {formik.touched.agree && formik.errors.agree && (
-          <div className="text-sm text-red-600 mt-2">
-            {formik.errors.agree}
-          </div>
-        )}
-      </div>
     </div>
   );
 };

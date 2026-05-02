@@ -1,4 +1,4 @@
-import { useCartStore } from "../cart/cart.store";
+import { useCartStore } from "../../cart/cart.store";
 
 const CartSummarySkeleton = () => {
   const cart = useCartStore(state => state.cart);

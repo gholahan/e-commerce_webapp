@@ -19,6 +19,7 @@ import ProfileForm from "./pages/ProfileForm";
 import AddressBook from "./pages/AddressBook";
 import PaymentOptions from "./pages/PaymentOptions";
 import NotFound from "./pages/NotFound";
+import VerifyPayment from "./pages/VerifyPayment";
 const Checkout = lazy(() => import("./pages/Checkout"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 
@@ -31,6 +32,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
     </Route>
     {/* <Route element={<ProtectedRoute/>}> */}
       <Route element={<RootLayout/>}>
+        <Route path="/payment/verify" element={<VerifyPayment/>}/>
         <Route path='/' element={<HomePage/>}/>
         <Route path='wishlist' element={<Wishlist/>}/>
         <Route path='/search' element={<SearchPage/>}/>

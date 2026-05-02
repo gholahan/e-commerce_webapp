@@ -1,5 +1,6 @@
+import { toast } from "react-toastify";
 import type { CartSummaryProps } from "../types";
-import CartSummarySkeleton from "../CartSummarySkeleton";
+import CartSummarySkeleton from "./CartSummarySkeleton";
 
 const CartSummary = ({
   cartProducts,
@@ -9,16 +10,27 @@ const CartSummary = ({
   total,
   formik,
   isProcessing = false,
-  loading
+  loading,
+  error,
+  payError
 }: CartSummaryProps) => {
   if (loading) {
     return <CartSummarySkeleton />;
   }
-
+ if (error) {
+    return (
+      <div className="flex justify-center items-center text-xs">
+        Error Loading your cart items
+      </div>
+    )
+  }
+  if (payError) {
+   toast.error("Payment Error, Try Again Later")
+  }
   return (
     <div className="w-full lg:w-110 text-sm font-medium lg:sticky lg:top-6 self-start">
       {cartProducts?.map((prod) => {
-        const cartItem = cart.find((item) => item.id === prod.id);
+        const cartItem = cart.find((item) => item.product_id === prod.id);
         const quantity = cartItem?.quantity ?? 1;
 
         const discountedPrice =
@@ -70,6 +82,26 @@ const CartSummary = ({
         <span>${total}</span>
       </div>
 
+      <div>
+        <div className="flex items-center gap-2 mt-2.5">
+          <input
+            name="agree"
+            type="checkbox"
+            checked={formik.values.agree}
+            onChange={formik.handleChange}
+            className="w-4 h-4"
+          />
+          <label className="text-gray-600 text-sm">
+            Agree to terms and condition
+          </label>
+        </div>
+
+        {formik.touched.agree && formik.errors.agree && (
+          <div className="text-sm text-red-600 mt-2">
+            {formik.errors.agree as string}
+          </div>
+        )}
+      </div>
       <div className="mt-6">
         <button
           type="submit"
