@@ -10,7 +10,6 @@ export const useCheckout = () => {
 
   return {
     ...mutation,
-    startCheckout: mutation.mutate,
     CheckoutAsync: mutation.mutateAsync,
   };
 };
